@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme{
+    --font-htw-regular: "htw-regular";
+    --font-htw-bold: "htw-bold";
+    --color-primary: #76B900;
+    --color-secondary: #575757;
+}
+
+@font-face {
+    font-family: "htw-regular";
+    src: url("./fonts/HTWBerlinOffice-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "htw-bold";
+    src: url("./fonts/HTWBerlinOffice-Bold.ttf") format("truetype");
+}
+
+button {
+    @apply
+    bg-primary
+    text-white
+    font-htw-bold
+    py-2
+    px-4
+    rounded
+    mt-10
+    hover:bg-white
+    hover:text-primary
+    hover:outline-primary
+    hover:outline-5
+    cursor-pointer
+}
+
+.header-btn {
+    @apply
+    w-15
+    h-15
+    object-contain
+    cursor-pointer
+    hover:outline-white
+    hover:outline-5
+}
+
+a {
+    @apply
+    font-htw-bold
+    text-primary
+    cursor-pointer
+    hover:underline
+}
+
+input {
+    @apply
+    bg-secondary
+    text-white
+    font-htw-bold
+    text-xl
+    py-2
+    px-4
+    rounded
+    mt-10
+    hover:outline-primary
+    hover:outline-5
+    cursor-pointer
+}
+
+
