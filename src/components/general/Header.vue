@@ -2,8 +2,12 @@
 import {defineProps} from "vue";
 import {useRouter} from "vue-router";
 
-const { restartProgress } = defineProps({
+const { restartProgress, setProgress } = defineProps({
   restartProgress: {
+    type: Function,
+    required: true
+  },
+  setProgress: {
     type: Function,
     required: true
   }
@@ -15,6 +19,11 @@ const goToExplanation = () => {
   router.push('/');
   restartProgress();
 }
+
+const goToStatistics = () => {
+  router.push('/result')
+  setProgress(11);
+}
 </script>
 
 <template>
@@ -25,7 +34,7 @@ const goToExplanation = () => {
       <h2 class="font-htw-regular text-xl">Experiment for Masters Course "Visualization"</h2>
     </div>
     <div class="flex flex-row gap-4 ml-auto mr-10">
-      <img src="../../assets/img/data_icon.svg" alt="Data Icon" class="header-btn">
+      <img @click="goToStatistics" src="../../assets/img/data_icon.svg" alt="Data Icon" class="header-btn">
       <img @click="goToExplanation" src="../../assets/img/restart_icon.svg" alt="Restart Icon" class="header-btn">
     </div>
   </header>

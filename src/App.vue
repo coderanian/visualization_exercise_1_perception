@@ -2,7 +2,7 @@
 import {ref} from "vue";
 import {Header, Footer, ProgressBar} from "@/components/general";
 
-const progress = ref({current: 0, total: 10})
+const progress = ref({current: 0, total: 11})
 const incrementProgress = () => {
   if(progress.value.current < progress.value.total)
     progress.value.current++
@@ -10,14 +10,17 @@ const incrementProgress = () => {
 const restartProgress = () => {
   progress.value.current = 0
 }
+const setProgress = (page) => {
+  progress.value.current = page;
+}
 
 </script>
 
 <template>
-  <Header :restartProgress="restartProgress"/>
+  <Header :restartProgress="restartProgress" :setProgress="setProgress"/>
   <main class="mt-10">
     <RouterView :incrementProgress="incrementProgress"/>
-    <ProgressBar :current="progress.current" :total="progress.total"/>
+    <ProgressBar v-if="progress.current < progress.total" :current="progress.current" :total="progress.total"/>
   </main>
   <Footer/>
 </template>

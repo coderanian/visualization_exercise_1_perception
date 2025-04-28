@@ -1,7 +1,8 @@
 <script setup>
-import {defineProps} from "vue";
+import {ref} from "vue";
 import {useRouter} from "vue-router";
-import Circle from "@/components/experiment/Circle.vue";
+import {Circle, Square, InputForm, SubmitButton} from "@/components/experiment";
+import {getSizes, getRandomColor} from "@/utils.js";
 
 const {incrementProgress} = defineProps({
   incrementProgress: {
@@ -10,38 +11,74 @@ const {incrementProgress} = defineProps({
   }
 });
 
-const router = useRouter();
-const goToResults = () => {
-  router.push('/result');
-  incrementProgress();
-}
-const colors = [
-    "#76B900",
-    "#AFAFAF",
-    "#FF5F00",
-    "#0082D1",
-    "#000000"
-]
-const getRandomColor = () => {
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return colors[randomIndex];
-}
-const answers = [
+const answers = ref([]);
+const currentQuestion = ref(0);
+const totalQuestions = 10;
+const inputAnswer = ref(1);
 
-]
+const questionSetup = ref({
+  id: null,
+  shape: null,
+  sizeLeft: null,
+  sizeRight: null,
+  color: null,
+  answer: null
+});
+
+const generateNewQuestion = () => {
+  const sizes = getSizes();
+  questionSetup.value = {
+    id: currentQuestion.value + 1,
+    shape: currentQuestion.value < 5 ? "circle" : "square",
+    sizeLeft: sizes[0],
+    sizeRight: sizes[1],
+    color: getRandomColor(),
+    answer: null
+  };
+};
+
+const handleNext = () => {
+  questionSetup.value.answer = inputAnswer.value;
+  answers.value.push({...questionSetup.value});
+  incrementProgress();
+  currentQuestion.value++;
+  generateNewQuestion();
+  inputAnswer.value = 1;
+};
+
+const router = useRouter();
+const goToResult = () => {
+  router.push('/result');
+}
+
+generateNewQuestion();
 </script>
 
 <template>
-  <p class="text-center text-2xl font-htw-bold text-gray">
-    How much bigger is the <span class="text-primary">right</span> right figure compared to the <span class="text-secondary">left</span>?
-  </p>
-  <div class="flex justify-center items-center justify-center mt-10">
-    <input type="number" min="1" max="20" class="flex justify-center h-10 p-2" value="1">
-    <img src="../assets/img/next_icon.svg" alt="Next Icon" class="w-10 h-10 ml-2 bg-primary"/>
-  </div>
-  <div class="w-2/3 h-[500px] mx-auto flex justify-center gap-x-100 items-center">
-    <Circle size="50" fill="getRandomColor"/>
-    <Circle size="450" fill="getRandomColor"/>
+  <SubmitButton v-if="currentQuestion === totalQuestions" :goToResult="goToResult" :answers="answers"/>
+  <div v-else>
+    <InputForm
+        :inputAnswer="inputAnswer"
+        :currentQuestion="currentQuestion"
+        @update:inputAnswer="val => inputAnswer = val"
+        :handleNext="handleNext"
+    />
+    <div v-if="currentQuestion < totalQuestions">
+      <div class="w-2/3 h-[600px] mx-auto flex justify-center items-center gap-20 mt-10">
+        <component
+            :is="questionSetup.shape === 'circle' ? Circle : Square"
+            :size="questionSetup.sizeLeft"
+            :fill="questionSetup.color"
+        />
+        <component
+            :is="questionSetup.shape === 'circle' ? Circle : Square"
+            :size="questionSetup.sizeRight"
+            :fill="questionSetup.color"
+        />
+      </div>
+    </div>
   </div>
 </template>
+
+
 

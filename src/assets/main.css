@@ -17,6 +17,11 @@
     src: url("./fonts/HTWBerlinOffice-Bold.ttf") format("truetype");
 }
 
+body {
+    @apply
+    font-htw-regular
+}
+
 button {
     @apply
     bg-primary
@@ -24,12 +29,34 @@ button {
     font-htw-bold
     py-2
     px-4
+    outline-primary
+    outline-5
     rounded
-    mt-10
     hover:bg-white
     hover:text-primary
-    hover:outline-primary
-    hover:outline-5
+    cursor-pointer
+}
+
+a {
+    @apply
+    font-htw-bold
+    text-primary
+    cursor-pointer
+    hover:underline
+}
+
+input {
+    @apply
+    w-1/5
+    bg-white
+    font-htw-bold
+    py-2
+    px-4
+    rounded-lg
+    border-primary
+    border-5
+    hover:bg-primary
+    hover:text-white
     cursor-pointer
 }
 
@@ -43,27 +70,9 @@ button {
     hover:outline-5
 }
 
-a {
+.dashboard {
     @apply
-    font-htw-bold
-    text-primary
-    cursor-pointer
-    hover:underline
+    px-10
+    py-5
 }
-
-input {
-    @apply
-    bg-secondary
-    text-white
-    font-htw-bold
-    text-xl
-    py-2
-    px-4
-    rounded
-    mt-10
-    hover:outline-primary
-    hover:outline-5
-    cursor-pointer
-}
-
 

@@ -1,29 +1,22 @@
 # visualization_exercise_1_perception
 
-This template should help get you started developing with Vue 3 in Vite.
+This Vue project has been deployed to collect data for a visualization exercise.
+Users will be asked to provide a perception of the size of the figures (circles and squares).
 
-## Recommended IDE Setup
+Due to small amount of participants, the answers were submitted via email without backend server and added to results.js manually.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
+![](./public/screenshot_1.JPG)
+![](./public/screenshot_2.JPG)
+![](./public/screenshot_3.JPG)
 ## Project Setup
 
+Node 16.14.2 or higher is required in order to install all the frontend dependencies.
+1. Install all the dependencies.
 ```sh
 npm install
 ```
-
-### Compile and Hot-Reload for Development
-
+2. Run the development server
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
