@@ -1,6 +1,6 @@
 <script setup>
 import {ref, defineProps} from "vue";
-import {calculateRatio, calculatePerceivedRatio} from "@/utils.js";
+import {calculateRatio, calculatePerceptionFactor} from "@/utils.js";
 
 const props = defineProps({
   answers: {
@@ -32,7 +32,7 @@ const submit = () => {
     <button @click="submit">Submit answers</button>
     <p>
       Based on your answers your perception of the area of the shapes is:
-      <strong>{{calculatePerceivedRatio(props.answers)}}</strong>
+      <strong>{{calculatePerceptionFactor(props.answers)}}</strong>
     </p>
     <button @click="toggleAnswers">
       {{ showAnswers ? 'Hide your answers' : 'Show your answers' }}
@@ -41,8 +41,9 @@ const submit = () => {
       <ul>
         <li v-for="(answer, index) in props.answers" :key="index" class="mb-2">
           <strong>{{ index + 1 }}. {{ answer.shape.toUpperCase() }}</strong>:
-          real ratio - {{ calculateRatio(answer.sizeLeft, answer.sizeRight) }}x,
-          your ratio - {{ answer.answer }}x
+          real ratio - {{ calculateRatio(answer.sizeLeft, answer.sizeRight) }}x bigger,
+          your ratio - {{ answer.answer }}x bigger,
+          your factor - {{calculatePerceptionFactor([answer])}}
         </li>
       </ul>
     </div>

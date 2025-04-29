@@ -22,7 +22,7 @@ const pagesLeft = computed(() => {
 </script>
 
 <template>
-  <div class="flex justify-center w-screen text-center absolute bottom-40">
+  <div class="flex justify-center w-screen text-center absolute bottom-25">
     <div class="w-7/8 bg-secondary h-4 rounded-full">
       <div class="bg-primary h-4 rounded" :style="{ width: progressWidth }"></div>
       <span class="text-gray-600 text-sm">{{ pagesLeft }} pages left</span>

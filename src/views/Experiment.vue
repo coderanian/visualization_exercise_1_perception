@@ -64,7 +64,7 @@ generateNewQuestion();
         :handleNext="handleNext"
     />
     <div v-if="currentQuestion < totalQuestions">
-      <div class="w-2/3 h-[600px] mx-auto flex justify-center items-center gap-20 mt-10">
+      <div class="w-2/3 h-[500px] mx-auto flex justify-center items-center gap-20 mt-0">
         <component
             :is="questionSetup.shape === 'circle' ? Circle : Square"
             :size="questionSetup.sizeLeft"

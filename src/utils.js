@@ -24,7 +24,8 @@ export const getSizes = () => {
 export const calculateRatio = (left, right) => (right / left);
 
 // log(perceivedRatio) = x * log(actualRatio)
-export const calculatePerceivedRatio = (answers) => {
+// x = log(perceivedRatio) / log(actualRatio)
+export const calculatePerceptionFactor = (answers) => {
     if (!answers.length) return 0;
     let totalExponent = 0;
     for (const answer of answers) {
@@ -45,7 +46,7 @@ export const calculateAccuracyShape = (shape) => {
     const answerShape = RESULTS.flat().filter(answer => answer.shape === shape);
     let total = 0;
     if (answerShape.length > 0) {
-        total = calculatePerceivedRatio(answerShape);
+        total = calculatePerceptionFactor(answerShape);
     }
     return Math.round(total * 100) / 100;
 };
@@ -55,7 +56,7 @@ export const calculateAccuracyColor = (color) => {
     const answerColor = RESULTS.flat().filter(answer => answer.color === color);
     let total = 0;
     if (answerColor.length > 0) {
-        total = calculatePerceivedRatio(answerColor);
+        total = calculatePerceptionFactor(answerColor);
     }
     return Math.round(total * 100) / 100;
 };
@@ -64,7 +65,7 @@ export const calculateAccuracyRatio = (ratio) => {
     const answerRatio = RESULTS.flat().filter(answer => calculateRatio(answer.sizeLeft, answer.sizeRight) === ratio);
     let total = 0;
     if (answerRatio.length > 0) {
-        total = calculatePerceivedRatio(answerRatio);
+        total = calculatePerceptionFactor(answerRatio);
     }
     return Math.max(1, Math.round(total * 100) / 100);
 };
@@ -73,7 +74,7 @@ export const calculateAccuracyGeneral = () => {
     let total = 0;
     for (let i = 0; i < RESULTS.length; i++) {
         const answer = RESULTS[i];
-        total += calculatePerceivedRatio(answer);
+        total += calculatePerceptionFactor(answer);
     }
     return Math.round((total / RESULTS.length) * 100) / 100;
 }

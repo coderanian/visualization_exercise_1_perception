@@ -114,16 +114,16 @@ onMounted(() => {
 
 <template>
   <div class="dashboard">
-    <h1 class="text-2xl font-htw-bold text-center mb-6">
-      Accuracy Metrics Dashboard
+    <h1 class="text-2xl font-htw-bold text-center mb-0">
+      Experiment Results
     </h1>
     <h2 class="text-xl font-htw-bold color-primary text-center mb-6">
-      General perceived ratio: {{ results.accuracyGeneral }}
+      General perceived ratio: <span class="text-primary">{{ results.accuracyGeneral }}</span>
     </h2>
     <div class="grid grid-cols-3 gap-6">
       <div class="bg-white p-6 rounded-lg border-secondary border-3">
         <h2 class="text-xl font-htw-bold mb-4 text-center">Perceived Ratio By Shape</h2>
-        <canvas id="shapeChart" height="200"></canvas>
+        <canvas id="shapeChart" height="150"></canvas>
         <div class="grid grid-cols-2 gap-2 mt-4">
           <div class="text-center p-2 bg-gray-100 rounded">
             <span class="text-sm">Circle:</span> {{ results.accuracyShapeCircle }}
@@ -136,7 +136,7 @@ onMounted(() => {
 
       <div class="bg-white p-6 rounded-lg border-secondary border-3">
         <h2 class="text-xl font-htw-bold mb-4 text-center">Perceived Ratio By Color</h2>
-        <canvas id="colorChart" height="200"></canvas>
+        <canvas id="colorChart" height="150"></canvas>
         <div class="grid grid-cols-3 gap-2 mt-4">
           <div v-for="(colorKey, index) in Object.keys(colorNames)" :key="index"
                class="text-center p-2 bg-gray-100 rounded flex flex-col items-center">
