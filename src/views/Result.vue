@@ -61,7 +61,10 @@ onMounted(() => {
       scales: {
         y: {
           beginAtZero: true,
-          max: 2,
+          max: 1.5,
+          ticks: {
+            stepSize: 0.1
+          },
           title: {
             display: true,
             text: 'Avg. perceived ratio'
@@ -100,7 +103,10 @@ onMounted(() => {
       scales: {
         y: {
           beginAtZero: true,
-          max: 2,
+          max: 1.5,
+          ticks: {
+            stepSize: 0.1
+          },
           title: {
             display: true,
             text: 'Avg. perceived ratio'
@@ -118,11 +124,11 @@ onMounted(() => {
       Experiment Results
     </h1>
     <h2 class="text-xl font-htw-bold color-primary text-center mb-6">
-      General perceived ratio: <span class="text-primary">{{ results.accuracyGeneral }}</span>
+      General average deviation from x: <span class="text-primary">{{ results.accuracyGeneral }} ({{ results.accuracyGeneral < 1 ? "perceived smaller than real" : "perceived bigger than real" }})</span>
     </h2>
     <div class="grid grid-cols-3 gap-6">
       <div class="bg-white p-6 rounded-lg border-secondary border-3">
-        <h2 class="text-xl font-htw-bold mb-4 text-center">Perceived Ratio By Shape</h2>
+        <h2 class="text-xl font-htw-bold mb-4 text-center">Deviation By Shape</h2>
         <canvas id="shapeChart" height="150"></canvas>
         <div class="grid grid-cols-2 gap-2 mt-4">
           <div class="text-center p-2 bg-gray-100 rounded">
@@ -135,7 +141,7 @@ onMounted(() => {
       </div>
 
       <div class="bg-white p-6 rounded-lg border-secondary border-3">
-        <h2 class="text-xl font-htw-bold mb-4 text-center">Perceived Ratio By Color</h2>
+        <h2 class="text-xl font-htw-bold mb-4 text-center">Deviation By Color</h2>
         <canvas id="colorChart" height="150"></canvas>
         <div class="grid grid-cols-3 gap-2 mt-4">
           <div v-for="(colorKey, index) in Object.keys(colorNames)" :key="index"

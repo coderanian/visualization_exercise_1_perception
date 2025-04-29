@@ -21,7 +21,18 @@ export const getSizes = () => {
     return [sizeLeft, sizeRight];
 };
 
-export const calculateRatio = (left, right) => (right / left);
+export const calculateRatio = (left, right, shape) => {
+    if (shape === "circle") {
+        const surfaceLeft = Math.PI * (left / 2) ** 2;
+        const surfaceRight = Math.PI * (right / 2) ** 2;
+        return surfaceLeft / surfaceRight;
+    }
+    if (shape === "square") {
+        const surfaceLeft = left ** 2;
+        const surfaceRight = right ** 2;
+        return surfaceLeft / surfaceRight;
+    }
+}
 
 // log(perceivedRatio) = x * log(actualRatio)
 // x = log(perceivedRatio) / log(actualRatio)
@@ -31,10 +42,10 @@ export const calculatePerceptionFactor = (answers) => {
     for (const answer of answers) {
         const left = answer.sizeLeft;
         const right = answer.sizeRight;
-        const actualRatio = calculateRatio(left, right);
+        const actualRatio = calculateRatio(left, right, answer.shape);
         const perceivedAnswer = answer.answer;
         if (actualRatio > 0 && perceivedAnswer > 0) {
-            const exponent = Math.log(perceivedAnswer) / Math.log(actualRatio);
+            const exponent = Math.abs(Math.log(perceivedAnswer) / Math.log(actualRatio));
             totalExponent += exponent;
         }
     }
