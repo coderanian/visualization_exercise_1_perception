@@ -70,6 +70,29 @@ input {
     hover:outline-5
 }
 
+.header-navbar-link {
+    @apply
+    font-htw-regular
+    text-xl
+    text-white
+    cursor-pointer
+}
+
+.header-navbar-link-active {
+    @apply
+    underline
+}
+
+.grid-element {
+    @apply
+    cursor-pointer
+    bg-gray-300
+    aspect-square
+    outline-white
+    outline-4
+    hover:outline-primary
+}
+
 .dashboard {
     @apply
     px-10
