@@ -3,7 +3,7 @@ import {ref} from "vue";
 import {Header, Footer, ProgressBar} from "@/components/general";
 import {useRoute} from "vue-router";
 
-const progress = ref({current: 0, total: 11})
+const progress = ref({current: 0, total: 9})
 const route = useRoute();
 
 const incrementProgress = () => {

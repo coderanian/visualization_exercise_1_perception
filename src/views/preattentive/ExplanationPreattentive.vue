@@ -1,5 +1,5 @@
 <script setup>
-import {defineProps} from "vue";
+import {defineProps, ref} from "vue";
 import {useRouter} from "vue-router";
 
 const { incrementProgress } = defineProps({
@@ -15,28 +15,43 @@ const goToExperiment = () => {
   router.push('/preattentive/experiment');
   incrementProgress();
 }
+const isInfoShown = ref(false);
+const showInfo = () => {
+  isInfoShown.value = !isInfoShown.value;
+}
+
 </script>
 
 <template>
   <div class="text-center text-lg flex flex-col gap-4 w-2/3 m-auto">
     <p>
-      Our perception of the area of a shape often does not exactly match its actual physical area.
-      Research has shown that the perceived size ratio is not directly proportional to the actual area ratio.
-      Instead, it follows a so-called power function:
-    </p>
-    <p class="font-htw-bold text-primary text-xl">
-      Perceived ratio = (actual ratio) raised to the power of x, where x varies slightly from person to person.
+      In the following eight questions, you will see an image for short duration and then asked to click on an area with the target attribute.
     </p>
     <p>
-      In this experiment, you will compare the sizes of five pairs of circles and five pairs of squares.
-      For each pair, you will compare the increase/decrease ratio of the right figure to the left.
+      If your answer is wrong you will repeat the duration of the repeated question will increase until you get correct answer.
+      This is the setup of the experiment:
     </p>
-    <p>
-      For example, if you think that the figure on the right is twice the size of the figure on the left, you should select 2.
-    </p>
-    <p>
-      At the end, you will see your perceived ratio! You can restart or see current statistics via buttons at the top right corner.
-    </p>
+    <ol>
+      <li>1. Find red circle</li>
+      <li>2. Find green circle</li>
+      <li>3. Find rectangle</li>
+      <li>4. Find rhombus</li>
+      <li>5 - 6. Find biggest circle</li>
+      <li>7 - 8. Find biggest red circle</li>
+    </ol>
     <button @click="goToExperiment">Begin</button>
+    <button @click="showInfo">
+      {{ isInfoShown ? 'Hide info on preattentive processing' : 'Show info on preattentive processing' }}
+    </button>
+    <div v-if="isInfoShown" class="mt-4 text-left">
+      <p>
+        Preattentive perception refers to the ability of the human brain to process certain visual information automatically and rapidly,
+        without the need for conscious attention.
+        This process allows us to quickly detect and recognize certain visual features, such as color, shape, size, or orientation,
+        even before we intentionally focus on them.
+        Preattentive cues are often used in design, data visualization, and cognitive psychology to highlight important information
+        and facilitate quicker decision-making by utilizing these easily processed visual attributes.
+      </p>
+    </div>
   </div>
 </template>

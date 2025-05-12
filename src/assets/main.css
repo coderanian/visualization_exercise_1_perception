@@ -90,7 +90,7 @@ input {
     aspect-square
     outline-white
     outline-4
-    hover:outline-primary
+    hover:bg-primary
 }
 
 .dashboard {
