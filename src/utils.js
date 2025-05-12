@@ -90,4 +90,38 @@ export const calculateAccuracyGeneral = () => {
     return Math.round((total / RESULTS.length) * 100) / 100;
 }
 
+export const TARGETORDER = [
+    {
+        target: "hue",
+        difficulty: 1
+    },
+    {
+        target: "hue",
+        difficulty: 2
+    },
+    {
+        target: "shape",
+        difficulty: 1
+    },
+    {
+        target: "shape",
+        difficulty: 2
+    },
+    {
+        target: "size",
+        difficulty: 1
+    },
+    {
+        target: "size",
+        difficulty: 2
+    },
+    {
+        target: "conjuction",
+        difficulty: 1
+    },
+    {
+        target: "conjuction",
+        difficulty: 2
+    },
+]
 

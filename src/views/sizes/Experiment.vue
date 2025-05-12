@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import {useRouter} from "vue-router";
-import {Circle, Square, InputForm, SubmitButton} from "@/components/experiment";
+import {Circle, Square, InputForm, SubmitButton} from "@/components/experiments/sizes/index.js";
 import {getSizes, getRandomColor} from "@/utils.js";
 
 const {incrementProgress} = defineProps({

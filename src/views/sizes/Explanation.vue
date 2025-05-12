@@ -12,7 +12,7 @@ const { incrementProgress } = defineProps({
 const router = useRouter();
 
 const goToExperiment = () => {
-  router.push('/experiment');
+  router.push('/sizes/experiment');
   incrementProgress();
 }
 </script>
