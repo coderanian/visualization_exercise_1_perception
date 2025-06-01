@@ -12,7 +12,7 @@ npm install
 2. Run the development server
 ```sh
 npm run dev
-```
+``` 
 
 ## Project Structure
 The project features components for the following two experiments:
@@ -24,7 +24,7 @@ Due to small amount of participants, the answers were submitted via email withou
 ![](./public/screenshot_2.JPG)
 ![](./public/screenshot_3.JPG)
 
-### Experiment 1: Preattentive Processing
+### Experiment 2: Preattentive Processing
 Users will be asked to view grid with various setup of targets and distractors and select the image segment with the target attribute.
 Due to small amount of participants, the answers were submitted via email without backend server and added to results.js manually.
 ![](./public/screenshot_4.JPG)
