@@ -1,6 +1,6 @@
-export async function getCarImage(car) {
+export async function fetchImage(searchQuery) {
     const serpApiKey = import.meta.env.VITE_SERP_API_KEY;
-    const query = encodeURIComponent(car);
+    const query = encodeURIComponent(searchQuery);
     //https://cors-anywhere.herokuapp.com/corsdemo
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
     const targetUrl = `https://serpapi.com/search.json?q=${query}&engine=google_images&ijn=0&api_key=${serpApiKey}`;
