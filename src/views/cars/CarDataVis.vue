@@ -30,6 +30,7 @@ const valuesUS = ref(false);
 const setCar = (car) => {
   if (!car) {
     selectedCar.value = initialCar;
+    isDetailsVisible.value = false
     return;
   }
   const carThumbnailQuery = `${car.car} ${car.manufacturer}`
@@ -42,10 +43,10 @@ const setCar = (car) => {
     carManufacturerLogo: null
   }
   isDetailsVisible.value = true
-  console.log(selectedCar.value)
 }
 
 const changeValuesUS = () => {
+  console.log(valuesUS.value)
   valuesUS.value = !valuesUS.value
 }
 
@@ -58,7 +59,7 @@ const changeValuesUS = () => {
       <button @click="changeValuesUS">Show US values</button>
     </div>
     <div v-if="isDetailsVisible" class="w-1/3 p-4">
-      <CarDetails :car="selectedCar" :valuesUS = "false" />
+      <CarDetails :car="selectedCar" :valuesUS = "valuesUS" :handle-close="setCar" />
     </div>
   </div>
 </template>
