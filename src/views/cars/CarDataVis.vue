@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { fetchImage } from "@/views/cars/utils.js";
 import { CAR_DATA } from "@/views/cars/data.js";
 import { CarDetails } from "@/components/experiments/cars";
+import CarBubbleChart from "@/components/experiments/cars/CarBubbleChart.vue";
 
 const initialCar = {
   car: null,
@@ -53,14 +54,17 @@ const changeValuesUS = () => {
 </script>
 
 <template>
-  <div class="flex px-10">
-    <div class="w-2/3 p-4">
-      <button @click="setCar(CAR_DATA[0])">Begin</button>
-      <button @click="changeValuesUS">Show US values</button>
-    </div>
-    <div v-if="isDetailsVisible" class="w-1/3 p-4">
-      <CarDetails :car="selectedCar" :valuesUS = "valuesUS" :handle-close="setCar" />
-    </div>
+  <div class="flex px-10 justify-between h-full">
+    <CarBubbleChart :handle-value-type-select="changeValuesUS"
+                    :handle-car-select="setCar"
+                    :values-u-s="valuesUS"
+                    :is-details-visible="isDetailsVisible"
+    />
+    <CarDetails :car="selectedCar"
+                :valuesUS="valuesUS"
+                :handle-close="setCar"
+                :is-details-visible="isDetailsVisible"
+    />
   </div>
 </template>
 

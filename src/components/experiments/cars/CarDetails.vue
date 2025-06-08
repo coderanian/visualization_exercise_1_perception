@@ -14,12 +14,16 @@ const props = defineProps({
     type: Function,
     required: true
   },
+  isDetailsVisible: {
+    type: Boolean,
+    required: true
+  }
 })
 
 </script>
 
 <template>
-  <div class="p-5 flex flex-col gap-4 border rounded-lg border-primary border-5">
+  <div v-if="isDetailsVisible" class="p-5 flex flex-col gap-4 border rounded-lg border-primary border-5">
     <div class="flex justify-end">
       <button @click="handleClose(null)" class="w-10 h-10 flex justify-center items-center">
         X
