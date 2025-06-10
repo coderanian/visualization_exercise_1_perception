@@ -4,10 +4,19 @@ import {useRouter} from "vue-router";
 const router = useRouter();
 
 const goToExperiment = (number) => {
-  if (number === 0) {
-    router.push('/sizes/explanation');
-  } else {
-    router.push('/preattentive/explanation');
+  switch(number) {
+    case 0: {
+      router.push('/sizes/explanation');
+      break;
+    }
+    case 1: {
+      router.push('/preattentive/explanation');
+      break;
+    }
+    case 2: {
+      router.push('/visualization/car-efficiency');
+      break;
+    }
   }
 }
 </script>
@@ -20,5 +29,6 @@ const goToExperiment = (number) => {
     </p>
     <button @click="goToExperiment(0)">Experiment 1: Size Perception</button>
     <button @click="goToExperiment(1)">Experiment 2: Pre-attentive Processing</button>
+    <button @click="goToExperiment(2)">Experiment 3: Car Data Visualization</button>
   </div>
 </template>

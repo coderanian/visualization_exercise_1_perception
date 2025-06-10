@@ -55,16 +55,23 @@ const goToHome = () => {
         >
           Pre-attentive Processing
         </router-link>
+        <router-link class="header-navbar-link"
+                     active-class="header-navbar-link-active"
+                     to="/visualization/car-efficiency"
+        >
+          Car Data Visualization
+        </router-link>
       </nav>
     </div>
     <div class="flex flex-row gap-4 ml-auto mr-10">
       <img @click="goToStatistics"
+           v-if="route.path !== '/visualization/car-efficiency'"
            src="../../assets/img/data_icon.svg"
            alt="Data Icon"
            class="header-btn"
       >
       <img @click="goToExplanation"
-           v-if="route.path !== '/' && route.path !== '/result'"
+           v-if="route.path !== '/' && (route.path !== '/result' && route.path !== '/visualization/car-efficiency')"
            src="../../assets/img/restart_icon.svg"
            alt="Restart Icon"
            class="header-btn"

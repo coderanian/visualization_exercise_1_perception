@@ -4,9 +4,11 @@ import ExplanationPreattentive from "@/views/preattentive/ExplanationPreattentiv
 import ExperimentPreattentive from "@/views/preattentive/ExperimentPreattentive.vue";
 import Result from "@/views/Result.vue";
 import Home from "@/views/Home.vue";
+import CarDataVis from "@/views/cars/CarDataVis.vue";
 
 export {
     Explanation, Experiment,
     ExplanationPreattentive, ExperimentPreattentive,
-    Result, Home
+    Result, Home,
+    CarDataVis
 };
