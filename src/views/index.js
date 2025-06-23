@@ -5,10 +5,11 @@ import ExperimentPreattentive from "@/views/preattentive/ExperimentPreattentive.
 import Result from "@/views/Result.vue";
 import Home from "@/views/Home.vue";
 import CarDataVis from "@/views/cars/CarDataVis.vue";
+import ApexChartsDataVis from "@/views/apexcharts/ApexChartsDataVis.vue";
 
 export {
     Explanation, Experiment,
     ExplanationPreattentive, ExperimentPreattentive,
     Result, Home,
-    CarDataVis
+    CarDataVis, ApexChartsDataVis
 };

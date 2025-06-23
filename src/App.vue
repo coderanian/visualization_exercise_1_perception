@@ -23,7 +23,8 @@ const setProgress = (page) => {
   <Header :restartProgress="restartProgress" :setProgress="setProgress"/>
   <main class="mt-10">
     <RouterView :incrementProgress="incrementProgress"/>
-    <ProgressBar v-if="progress.current < progress.total && (route.path !== '/' && route.path !== '/visualization/car-efficiency')"
+    <ProgressBar v-if="progress.current < progress.total &&
+    (route.path !== '/' && route.path !== '/visualization/car-efficiency/apexcharts' && route.path !== '/visualization/car-efficiency/custom')"
                  :current="progress.current"
                  :total="progress.total"
     />

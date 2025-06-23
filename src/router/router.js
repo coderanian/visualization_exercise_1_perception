@@ -1,5 +1,5 @@
 import {createWebHistory, createRouter} from "vue-router";
-import {Explanation, Experiment, Result, Home, ExplanationPreattentive, ExperimentPreattentive, CarDataVis} from "../views";
+import {Explanation, Experiment, Result, Home, ExplanationPreattentive, ExperimentPreattentive, CarDataVis, ApexChartsDataVis} from "../views";
 
 const routes = [
     {
@@ -28,9 +28,14 @@ const routes = [
         component: ExperimentPreattentive
     },
     {
-        path: "/visualization/car-efficiency",
-        name: 'Car Data Visualization',
+        path: "/visualization/car-efficiency/custom",
+        name: 'Visualization Custom',
         component: CarDataVis
+    },
+    {
+        path: "/visualization/car-efficiency/apexcharts",
+        name: 'Visualization ApexCharts',
+        component: ApexChartsDataVis
     },
     {
         path: "/result",

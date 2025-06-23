@@ -6,6 +6,8 @@
     --font-htw-bold: "htw-bold";
     --color-primary: #76B900;
     --color-secondary: #575757;
+    --color-one:#76B900;
+    --color-two:#575757;
 }
 
 @font-face {
@@ -23,6 +25,7 @@ body {
     font-htw-regular
 }
 
+.label-import,
 button {
     @apply
     bg-primary
@@ -98,5 +101,14 @@ input {
     @apply
     px-10
     py-5
+}
+
+.btn-alert-closure {
+    @apply
+    m-1
+    bg-red-700
+    text-white
+    outline-none
+    hover:bg-red-900
 }
 

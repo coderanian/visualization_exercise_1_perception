@@ -34,7 +34,7 @@ const goToHome = () => {
 </script>
 
 <template>
-  <header class="bg-primary text-white w-screen h-screen/5 flex items-center">
+  <div class="bg-one text-white w-screen h-screen/5 flex items-center">
     <img src="../../assets/img/htw_logo.svg"
          alt="HTW Logo"
          class="cursor-pointer h-30 w-30 object-contain ml-10"
@@ -57,25 +57,31 @@ const goToHome = () => {
         </router-link>
         <router-link class="header-navbar-link"
                      active-class="header-navbar-link-active"
-                     to="/visualization/car-efficiency"
+                     to="/visualization/car-efficiency/custom"
         >
-          Car Data Visualization
+          Visualization (Custom Solution)
+        </router-link>
+        <router-link class="header-navbar-link"
+                     active-class="header-navbar-link-active"
+                     to="/visualization/car-efficiency/apexcharts"
+        >
+          Visualization (ApexCharts)
         </router-link>
       </nav>
     </div>
     <div class="flex flex-row gap-4 ml-auto mr-10">
       <img @click="goToStatistics"
-           v-if="route.path !== '/visualization/car-efficiency'"
+           v-if="route.path === '/sizes/explanation'"
            src="../../assets/img/data_icon.svg"
            alt="Data Icon"
            class="header-btn"
       >
       <img @click="goToExplanation"
-           v-if="route.path !== '/' && (route.path !== '/result' && route.path !== '/visualization/car-efficiency')"
+           v-if="route.path === '/sizes/explanation' || route.path === '/preattentive/explanation'"
            src="../../assets/img/restart_icon.svg"
            alt="Restart Icon"
            class="header-btn"
       >
     </div>
-  </header>
+  </div>
 </template>
