@@ -30,3 +30,11 @@ Due to small amount of participants, the answers were submitted via email withou
 ![](./public/screenshot_4.JPG)
 ![](./public/screenshot_5.JPG)
 
+### Experiment 3: Custom Data Visualization
+Dataset with various car-date, saved in src/assets/data_raw was visualized with a custom-built scatterplot. Users can filter the data to get more insights.
+![](./public/screenshot_8.png)
+
+### Experiment 4: Data Visualization With Framework
+Dataset from Exercise 3, saved in src/assets/data_raw was re-visualized with a scatterplot powered by ApexChart vislib. Users can filter the data to get more insights.
+![](./public/screenshot_6.png)
+![](./public/screenshot_7.png)

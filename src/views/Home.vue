@@ -14,7 +14,11 @@ const goToExperiment = (number) => {
       break;
     }
     case 2: {
-      router.push('/visualization/car-efficiency');
+      router.push('/visualization/car-efficiency/custom');
+      break;
+    }
+    case 3: {
+      router.push('/visualization/car-efficiency/apexcharts');
       break;
     }
   }
@@ -29,6 +33,7 @@ const goToExperiment = (number) => {
     </p>
     <button @click="goToExperiment(0)">Experiment 1: Size Perception</button>
     <button @click="goToExperiment(1)">Experiment 2: Pre-attentive Processing</button>
-    <button @click="goToExperiment(2)">Experiment 3: Car Data Visualization</button>
+    <button @click="goToExperiment(2)">Experiment 3: Car Data Visualization With Custom Tool</button>
+    <button @click="goToExperiment(3)">Experiment 4: Car Data Visualization With ApexCharts</button>
   </div>
 </template>
